@@ -1,28 +1,23 @@
-package com.miproyecto.servlets;
+package act7;
 
 import java.io.IOException;
-// Jakarta es apartir de la version 10 de tomcat
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet de ejemplo
- * 
- * @author ENDES
- * @version 1.0
- * 
+ * Servlet implementation class Actividad7
  */
-@WebServlet(name = "miServlet", urlPatterns = "/miServlet")
-public class MiServlet extends HttpServlet {
+public class Actividad7 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MiServlet() {
+    public Actividad7() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +27,18 @@ public class MiServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	      response.getWriter().print("Hola desde MiServlet!");
+		String numero = request.getParameter("numero");
+		if (numero != null) {
+			int num = Integer.parseInt(numero);
+			ArrayList<Integer> listResultado = new ArrayList<>();
+			for (int i=1; i < 10 + 1 ; i++) { 
+	            int mult = num * i;
+	            listResultado.add(mult);
+	        }
+			request.setAttribute("lista", listResultado);
+			request.setAttribute("numTabla", num);
+		}
+		getServletContext().getRequestDispatcher("/tabla_multiplicar.jsp").forward(request, response);
 	}
 
 	/**

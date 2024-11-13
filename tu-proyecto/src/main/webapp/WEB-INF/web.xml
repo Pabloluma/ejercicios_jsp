@@ -4,4 +4,53 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+   <servlet>
+        <servlet-name>miServlet</servlet-name>
+        <servlet-class>com.miproyecto.servlets.MiServlet</servlet-class>
+    </servlet>
+   <servlet>
+   	<servlet-name>Actividad1</servlet-name>
+   	<display-name>Actividad1</display-name>
+   	<description></description>
+   	<servlet-class>act1.Actividad1</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>Actividad2</servlet-name>
+   	<display-name>Actividad2</display-name>
+   	<description></description>
+   	<servlet-class>act2.Actividad2</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>Actividad5</servlet-name>
+   	<display-name>Actividad5</display-name>
+   	<description></description>
+   	<servlet-class>act5.Actividad5</servlet-class>
+   </servlet>
+   <servlet>
+   	<servlet-name>Actividad7</servlet-name>
+   	<display-name>Actividad7</display-name>
+   	<description></description>
+   	<servlet-class>act7.Actividad7</servlet-class>
+   </servlet>
+
+    <servlet-mapping>
+        <servlet-name>miServlet</servlet-name>
+        <url-pattern>/miServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Actividad1</servlet-name>
+    	<url-pattern>/Actividad1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Actividad2</servlet-name>
+    	<url-pattern>/Actividad2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Actividad5</servlet-name>
+    	<url-pattern>/Actividad5</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Actividad7</servlet-name>
+    	<url-pattern>/Actividad7</url-pattern>
+    </servlet-mapping>
 </web-app>

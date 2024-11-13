@@ -1,28 +1,21 @@
-package com.miproyecto.servlets;
+package act2;
 
 import java.io.IOException;
-// Jakarta es apartir de la version 10 de tomcat
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet de ejemplo
- * 
- * @author ENDES
- * @version 1.0
- * 
+ * Servlet implementation class Actividad2
  */
-@WebServlet(name = "miServlet", urlPatterns = "/miServlet")
-public class MiServlet extends HttpServlet {
+public class Actividad2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MiServlet() {
+    public Actividad2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +25,16 @@ public class MiServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	      response.getWriter().print("Hola desde MiServlet!");
+		String distancia = request.getParameter("distancia");
+		String velocidad = request.getParameter("velocidad");
+		if (distancia != null && velocidad != null){
+			double dist = Double.parseDouble(distancia);
+			double vel = Double.parseDouble(velocidad);
+			double tiempo = dist/vel;
+			System.out.println(tiempo);
+			request.setAttribute("tiempo", tiempo);
+		}
+		getServletContext().getRequestDispatcher("/calculo_tiempo_viaje.jsp").forward(request, response);
 	}
 
 	/**
